@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>NAAAAAAAAAAAAAAH</title>
+    </head>
+        
+    <style>
+        input {
+            display: none; 
+        }
+        button {
+            position: relative;
+        }
+        
+        label {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        /* default */
+        .n01, .n10, .n11, .plusb, .minb, .mulb, .divb, .eqb {
+            display: none;
+        }
+        
+        
+        /* 1st num 1st digit */
+        .n0_0 > :checked ~ div .gay button .n00 {
+            display: none;
+        }
+        
+        .n0_0 > :checked ~ div .gay button .n01, .n0_0 > :checked ~ div .chink button label {
+            display: block;
+        }
+                
+        /* 1st num 2nd digit */
+        .n0_1 > :checked ~ div .gay button .n01 {
+            display: none;
+        }
+        
+        .n0_1 > :checked ~ div .gay button .n10{
+            display: block;
+        }
+        
+        
+        /* arithmetic */
+        .arith > :checked ~ div .gay button .n00, .arith > :checked ~ div .gay button .n01, .arith > :checked ~ div .chink button label {
+            display: none;
+        }
+        .arith > :checked ~ div .gay button .n10 {
+            display: block;
+        }
+        
+        /* 2nd num 1st digit */
+        .n1_0 > :checked ~ div .gay button .n10 {
+            display: none;
+        }
+        .n1_0 > :checked ~ div .gay button .n11 {
+            display: block;
+        }
+        .n1_0 > :checked ~ div .lolol button .eqb {
+            display: block;
+        }
+        
+        /* 2nd num 2nd digit */
+        .n1_1 > :checked ~ .gay .stronge .n11 {
+            display: none;
+        }
+        
+        /* equals */
+        #eq:checked ~ div .gay button .n00 {
+            display: none;
+        }
+        #eq:checked ~ div .gay button .n01 {
+            display: none;
+        }
+        #eq:checked ~ div .gay button .n10 {
+            display: none;
+        }
+        #eq:checked ~ div .gay button .n11 {
+            display: none;
+        }
+        #eq:checked ~ div .lolol button .eqb {
+            display: none;
+        }
+        
+        /* calc */
+        #x0_1:checked + * + * + * + * + * + * + * + * + * + * { --val: 1; --numero1: 1; }
+        #x0_2:checked + * + * + * + * + * + * + * + * + * { --val: 2; --numero1: 2; }
+        #x0_3:checked + * + * + * + * + * + * + * + * { --val: 3; --numero1: 3; }
+        #x0_4:checked + * + * + * + * + * + * + * { --val: 4; --numero1: 4; }
+        #x0_5:checked + * + * + * + * + * + *  { --val: 5; --numero1: 5; }
+        #x0_6:checked + * + * + * + * + * { --val: 6; --numero1: 6; }
+        #x0_7:checked + * + * + * + * { --val: 7; --numero1: 7; }
+        #x0_8:checked + * + * + * { --val: 8; --numero1: 8; }
+        #x0_9:checked + * + * { --val: 9; --numero1: 9; }
+        #x0_0:checked + * { --val: 0; --numero1: 0; }
+        
+        .n0_0 > :checked ~ div #x1_1:checked + * + * + * + * + * + * + * + * + * + * { --numero1: calc(var(--val) * 10 + 1) }
+        .n0_0 > :checked ~ div #x1_2:checked + * + * + * + * + * + * + * + * + *  { --numero1: calc(var(--val) * 10 + 2) }
+        .n0_0 > :checked ~ div #x1_3:checked + * + * + * + * + * + * + * + * { --numero1: calc(var(--val) * 10 + 3) }
+        .n0_0 > :checked ~ div #x1_4:checked + * + * + * + * + * + * + * { --numero1: calc(var(--val) * 10 + 4) }
+        .n0_0 > :checked ~ div #x1_5:checked + * + * + * + * + * + *  { --numero1: calc(var(--val) * 10 + 5) }
+        .n0_0 > :checked ~ div #x1_6:checked + * + * + * + * + *  { --numero1: calc(var(--val) * 10 + 6) }
+        .n0_0 > :checked ~ div #x1_7:checked + * + * + * + * { --numero1: calc(var(--val) * 10 + 7) }
+        .n0_0 > :checked ~ div #x1_8:checked + * + * + * { --numero1: calc(var(--val) * 10 + 8) }
+        .n0_0 > :checked ~ div #x1_9:checked + * + *  { --numero1: calc(var(--val) * 10 + 9) }
+        .n0_0 > :checked ~ div #x1_0:checked + * { --numero1: calc(var(--val) * 10 + 0) }
+        
+        #y0_1:checked + * + * + * + * + * + * + * + * + * + * { --val2: 1; --numero2: 1;  }
+        #y0_2:checked + * + * + * + * + * + * + * + * + * { --val2: 2; --numero2: 2; }
+        #y0_3:checked + * + * + * + * + * + * + * + * { --val2: 3; --numero2: 3; }
+        #y0_4:checked + * + * + * + * + * + * + * { --val2: 4; --numero2: 4; }
+        #y0_5:checked + * + * + * + * + * + *  { --val2: 5; --numero2: 5; }
+        #y0_6:checked + * + * + * + * + * { --val2: 6; --numero2: 6; }
+        #y0_7:checked + * + * + * + * { --val2: 7; --numero2: 7; }
+        #y0_8:checked + * + * + * { --val2: 8; --numero2: 8; }
+        #y0_9:checked + * + * { --val2: 9; --numero2: 9; }
+        #y0_0:checked + * { --val2: 0; --numero2: 0; }
+        
+        .n1_0 > :checked ~ div #y1_1:checked + * + * + * + * + * + * + * + * + * + *  { --numero2: calc(var(--val2) * 10 + 1) }
+        .n1_0 > :checked ~ div #y1_2:checked + * + * + * + * + * + * + * + * + * { --numero2: calc(var(--val2) * 10 + 2) }
+        .n1_0 > :checked ~ div #y1_3:checked + * + * + * + * + * + * + * + * { --numero2: calc(var(--val2) * 10 + 3) }
+        .n1_0 > :checked ~ div #y1_4:checked + * + * + * + * + * + * + * { --numero2: calc(var(--val2) * 10 + 4) }
+        .n1_0 > :checked ~ div #y1_5:checked + * + * + * + * + * + *  { --numero2: calc(var(--val2) * 10 + 5) }
+        .n1_0 > :checked ~ div #y1_6:checked + * + * + * + * + * { --numero2: calc(var(--val2) * 10 + 6) }
+        .n1_0 > :checked ~ div #y1_7:checked + * + * + * + * { --numero2: calc(var(--val2) * 10 + 7) }
+        .n1_0 > :checked ~ div #y1_8:checked + * + * + *  { --numero2: calc(var(--val2) * 10 + 8) }
+        .n1_0 > :checked ~ div #y1_9:checked + * + *  { --numero2: calc(var(--val2) * 10 + 9) }
+        .n1_0 > :checked ~ div #y1_0:checked + * { --numero2: calc(var(--val2) * 10 + 0) }
+                
+        #eq:checked ~ .n0_1 .arith > #plus:checked ~ div .omegalol {
+             --total: calc(var(--numero1) + var(--numero2));
+            counter-reset: stotal var(--total);
+        }
+        
+        #eq:checked ~ .n0_1 .arith > #minus:checked ~ div .omegalol  {
+             --total: calc(var(--numero1) - var(--numero2));            
+            counter-reset: stotal var(--total);
+        }
+        
+        #eq:checked ~ .n0_1 .arith > #mult:checked ~ div .omegalol {
+             --total: calc(var(--numero1) * var(--numero2));
+            counter-reset: stotal var(--total);
+        }
+        
+        #eq:checked ~ .n0_1 .arith > #div:checked ~ div .omegalol {
+            --total: calc(var(--numero1) / var(--numero2));
+            counter-reset: stotal var(--total);
+        }
+        
+        #eq:checked ~ .n0_1 .arith > #plus:checked ~ div .omegalol:after, #eq:checked ~ .n0_1 .arith > #minus:checked ~ div .omegalol:after, #eq:checked ~ .n0_1 .arith > #mult:checked ~ div .omegalol:after, #eq:checked ~ .n0_1 .arith > #div:checked ~ div .omegalol:after{
+             content: counter(stotal);
+        }
+        
+        .omegalol {
+            width: 100px;
+            height: 100px;
+            display: block;
+        }
+        
+        .init1{
+            counter-reset: gei var(--numero1);
+        }
+        
+        .init1:after {
+            content: counter(gei);
+        }
+        #plus:checked ~ .init2 {
+            --operatus: '+';
+        }
+        #minus:checked ~ .init2  {
+             --operatus: '-';
+        }
+        #mult:checked ~ .init2  {
+             --operatus: '*';
+        }
+        #div:checked ~ .init2  {
+             --operatus: '/';
+        }
+        
+        .init2{
+            counter-reset: gei var(--numero1);
+        }
+        
+        .init2:after {
+            content: var(--operatus);
+        }
+        
+        .init3{
+            counter-reset: lowrd var(--numero2);
+        }
+        
+        .init3:after {
+            content: counter(lowrd);
+        }
+        
+        
+    </style>
+        
+    <body>
+        <form>
+            
+
+            <div class="n0_0">
+                <input type="checkbox" id="eq" />
+                <input type="reset" id="clear" />
+                
+                
+                
+                <input type="checkbox" id="x0_1" class="num1" />
+                <input type="checkbox" id="x0_2" class="num2"  />
+                <input type="checkbox" id="x0_3" class="num3"  />
+                <input type="checkbox" id="x0_4" class="num4"  />
+                <input type="checkbox" id="x0_5" class="num5"  />
+                <input type="checkbox" id="x0_6" class="num6"  />
+                <input type="checkbox" id="x0_7" class="num7"  />
+                <input type="checkbox" id="x0_8" class="num8"  />
+                <input type="checkbox" id="x0_9" class="num9"  />
+                <input type="checkbox" id="x0_0" class="num0"  />
+
+                <div class="n0_1">
+                    <input type="checkbox" id="x1_1" class="num1" />
+                    <input type="checkbox" id="x1_2" class="num2" />
+                    <input type="checkbox" id="x1_3" class="num3" />
+                    <input type="checkbox" id="x1_4" class="num4" />
+                    <input type="checkbox" id="x1_5" class="num5" />
+                    <input type="checkbox" id="x1_6" class="num6" />
+                    <input type="checkbox" id="x1_7" class="num7" />
+                    <input type="checkbox" id="x1_8" class="num8" />
+                    <input type="checkbox" id="x1_9" class="num9" />
+                    <input type="checkbox" id="x1_0" class="num0" />
+                    
+                    
+                    <div class="arith">
+                        <div class="init1"></div>
+                        
+                        <input type="checkbox" id="plus" />
+                        <input type="checkbox" id="minus" />
+                        <input type="checkbox" id="mult" />
+                        <input type="checkbox" id="div" />
+                        
+                        <div class="init2"></div>
+                        <div class="n1_0">
+                            <input type="checkbox" id="y0_1" class="num1" />
+                            <input type="checkbox" id="y0_2" class="num2" />
+                            <input type="checkbox" id="y0_3" class="num3" />
+                            <input type="checkbox" id="y0_4" class="num4" />
+                            <input type="checkbox" id="y0_5" class="num5" />
+                            <input type="checkbox" id="y0_6" class="num6" />
+                            <input type="checkbox" id="y0_7" class="num7" />
+                            <input type="checkbox" id="y0_8" class="num8" />
+                            <input type="checkbox" id="y0_9" class="num9" />
+                            <input type="checkbox" id="y0_0" class="num0" />
+
+                            <div class="n1_1">
+                                <input type="checkbox" id="y1_1" class="num1" />
+                                <input type="checkbox" id="y1_2" class="num2" />
+                                <input type="checkbox" id="y1_3" class="num3" />
+                                <input type="checkbox" id="y1_4" class="num4" />
+                                <input type="checkbox" id="y1_5" class="num5" />
+                                <input type="checkbox" id="y1_6" class="num6" />
+                                <input type="checkbox" id="y1_7" class="num7" />
+                                <input type="checkbox" id="y1_8" class="num8" />
+                                <input type="checkbox" id="y1_9" class="num9" />
+                                <input type="checkbox" id="y1_0" class="num0" />
+                                
+                                
+                                
+                                <div class="gay">
+                                    <div class="init3"></div>
+                                    
+                                    <div class="omegalol">=</div>
+                                    
+                                    <button type="button" class="stronge">
+                                        <label for="x0_1" class="n00"></label>
+                                        <label for="x1_1" class="n01"></label>
+
+                                        <label for="y0_1" class="n10"></label>
+                                        <label for="y1_1" class="n11"></label>
+                                        1
+                                    </button>
+
+                                    <button type="button" class="stronge">
+                                        <label for="x0_2" class="n00"></label>
+                                        <label for="x1_2" class="n01"></label>
+
+                                        <label for="y0_2" class="n10"></label>
+                                        <label for="y1_2" class="n11"></label>
+                                        2
+                                    </button>
+
+                                    <button type="button" class="stronge">
+                                        <label for="x0_3" class="n00"></label>
+                                        <label for="x1_3" class="n01"></label>
+
+                                        <label for="y0_3" class="n10"></label>
+                                        <label for="y1_3" class="n11"></label>
+                                        3
+                                    </button>
+
+                                    <button type="button" class="stronge">
+                                        <label for="x0_4" class="n00"></label>
+                                        <label for="x1_4" class="n01"></label>
+
+                                        <label for="y0_4" class="n10"></label>
+                                        <label for="y1_4" class="n11"></label>
+                                        4
+                                    </button>
+
+                                    <button type="button" class="stronge">
+                                        <label for="x0_5" class="n00"></label>
+                                        <label for="x1_5" class="n01"></label>
+
+                                        <label for="y0_5" class="n10"></label>
+                                        <label for="y1_5" class="n11"></label>
+                                        5
+                                    </button>
+
+                                    <button type="button" class="stronge">
+                                        <label for="x0_6" class="n00"></label>
+                                        <label for="x1_6" class="n01"></label>
+
+                                        <label for="y0_6" class="n10"></label>
+                                        <label for="y1_6" class="n11"></label>
+                                        6
+                                    </button>
+
+                                    <button type="button" class="stronge">
+                                        <label for="x0_7" class="n00"></label>
+                                        <label for="x1_7" class="n01"></label>
+
+                                        <label for="y0_7" class="n10"></label>
+                                        <label for="y1_7" class="n11"></label>
+                                        7
+                                    </button>
+
+                                    <button type="button" class="stronge">
+                                        <label for="x0_8" class="n00"></label>
+                                        <label for="x1_8" class="n01"></label>
+
+                                        <label for="y0_8" class="n10"></label>
+                                        <label for="y1_8" class="n11"></label>
+                                        8
+                                    </button>
+
+                                    <button type="button" class="stronge">
+                                        <label for="x0_9" class="n00"></label>
+                                        <label for="x1_9" class="n01"></label>
+
+                                        <label for="y0_9" class="n10"></label>
+                                        <label for="y1_9" class="n11"></label>
+                                        9
+                                    </button>
+
+                                    <button type="button" class="stronge">
+                                        <label for="x0_0" class="n00"></label>
+                                        <label for="x1_0" class="n01"></label>
+
+                                        <label for="y0_0" class="n10"></label>
+                                        <label for="y1_0" class="n11"></label>
+                                        0
+                                    </button>
+                                </div>
+
+                                <div class="chink">
+                                    <button type="button">
+                                        <label for="plus" class="plusb"></label>
+                                        +
+                                    </button>
+
+                                    <button type="button">
+                                        <label for="minus" class="minb"></label>
+                                        -
+                                    </button>
+
+                                    <button type="button">
+                                        <label for="mult" class="mulb"></label>
+                                        *
+                                    </button>
+
+                                    <button type="button">
+                                        <label for="div" class="divb"></label>
+                                        /
+                                    </button>
+                                </div>
+                                <div class="lolol">
+                                    <button type="button">
+                                        <label for="eq" class="eqb"></label>
+                                        =
+                                    </button>
+                                    <button type="button">
+                                        <label for="clear" style="display: block !important;"></label>
+                                        c
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </form>
+    </body>
+</html>
+
