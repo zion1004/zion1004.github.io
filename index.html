@@ -14,6 +14,13 @@
         }
         button {
             position: relative;
+            border-radius: 25px;
+            width: 50px;
+            height: 50px;
+            border: 1px solid #ff9999;
+            background-color: #ff9999;
+            color: aliceblue;
+            font-size: 20px;
         }
         
         label {
@@ -45,9 +52,6 @@
             display: none;
         }
         
-        .n0_1 > :checked ~ div .gay button .n10{
-            display: block;
-        }
         
         
         /* arithmetic */
@@ -65,9 +69,11 @@
         .n1_0 > :checked ~ div .gay button .n11 {
             display: block;
         }
+        
         .n1_0 > :checked ~ div .lolol button .eqb {
             display: block;
         }
+        
         
         /* 2nd num 2nd digit */
         .n1_1 > :checked ~ .gay .stronge .n11 {
@@ -139,21 +145,29 @@
         #eq:checked ~ .n0_1 .arith > #plus:checked ~ div .omegalol {
              --total: calc(var(--numero1) + var(--numero2));
             counter-reset: stotal var(--total);
+            display: inline;
         }
         
         #eq:checked ~ .n0_1 .arith > #minus:checked ~ div .omegalol  {
              --total: calc(var(--numero1) - var(--numero2));            
             counter-reset: stotal var(--total);
+            display: inline;
         }
         
         #eq:checked ~ .n0_1 .arith > #mult:checked ~ div .omegalol {
              --total: calc(var(--numero1) * var(--numero2));
             counter-reset: stotal var(--total);
+            display: inline;
         }
         
         #eq:checked ~ .n0_1 .arith > #div:checked ~ div .omegalol {
             --total: calc(var(--numero1) / var(--numero2));
             counter-reset: stotal var(--total);
+            display: inline;
+        }
+        
+        #eq:checked ~ .n0_1 .arith > #plus:checked ~ div .omegalol:after, #eq:checked ~ .n0_1 .arith > #minus:checked ~ div .omegalol:after, #eq:checked ~ .n0_1 .arith > #mult:checked ~ div .omegalol:after, #eq:checked ~ .n0_1 .arith > #div:checked ~ div .omegalol {
+            display: inline;
         }
         
         #eq:checked ~ .n0_1 .arith > #plus:checked ~ div .omegalol:after, #eq:checked ~ .n0_1 .arith > #minus:checked ~ div .omegalol:after, #eq:checked ~ .n0_1 .arith > #mult:checked ~ div .omegalol:after, #eq:checked ~ .n0_1 .arith > #div:checked ~ div .omegalol:after{
@@ -163,14 +177,14 @@
         .omegalol {
             width: 100px;
             height: 100px;
-            display: block;
+            display: none;
         }
         
         .init1{
             counter-reset: gei var(--numero1);
         }
         
-        .init1:after {
+        .n0_0 > :checked ~ div div .init1:after {
             content: counter(gei);
         }
         #plus:checked ~ .init2 {
@@ -198,14 +212,14 @@
             counter-reset: lowrd var(--numero2);
         }
         
-        .init3:after {
+        .n1_0 > :checked ~ div div .init3:after {
             content: counter(lowrd);
         }
         
         
     </style>
         
-    <body>
+    <body style="width: 100%; height: 100%; background-color: burlywood">
         <form>
             
 
@@ -240,14 +254,14 @@
                     
                     
                     <div class="arith">
-                        <div class="init1"></div>
+                        <div class="init1" style="position: absolute;top: 30px;left: 35px;font-size: 20px;"></div>
                         
                         <input type="checkbox" id="plus" />
                         <input type="checkbox" id="minus" />
                         <input type="checkbox" id="mult" />
                         <input type="checkbox" id="div" />
                         
-                        <div class="init2"></div>
+                        <div class="init2" style="position: absolute;top: 30px;left: 60px;font-size: 20px;"></div>
                         <div class="n1_0">
                             <input type="checkbox" id="y0_1" class="num1" />
                             <input type="checkbox" id="y0_2" class="num2" />
@@ -275,11 +289,11 @@
                                 
                                 
                                 <div class="gay">
-                                    <div class="init3"></div>
+                                    <div class="init3" style="position: absolute;top: 30px;left: 75px;font-size: 20px;"></div>
                                     
-                                    <div class="omegalol">=</div>
+                                    <div class="omegalol" style="position: absolute;top: 60px;left: 30px;font-size: 20px;">=<span>&nbsp;</span></div>
                                     
-                                    <button type="button" class="stronge">
+                                    <button type="button" class="stronge" style="position: absolute; top: 150px; left: 25px;">
                                         <label for="x0_1" class="n00"></label>
                                         <label for="x1_1" class="n01"></label>
 
@@ -288,7 +302,7 @@
                                         1
                                     </button>
 
-                                    <button type="button" class="stronge">
+                                    <button type="button" class="stronge" style="position: absolute; top: 150px; left: 85px;">
                                         <label for="x0_2" class="n00"></label>
                                         <label for="x1_2" class="n01"></label>
 
@@ -297,7 +311,7 @@
                                         2
                                     </button>
 
-                                    <button type="button" class="stronge">
+                                    <button type="button" class="stronge" style="position: absolute; top: 150px; left: 145px;">
                                         <label for="x0_3" class="n00"></label>
                                         <label for="x1_3" class="n01"></label>
 
@@ -305,8 +319,8 @@
                                         <label for="y1_3" class="n11"></label>
                                         3
                                     </button>
-
-                                    <button type="button" class="stronge">
+                                    
+                                    <button type="button" class="stronge" style="position: absolute; top: 215px; left: 25px;">
                                         <label for="x0_4" class="n00"></label>
                                         <label for="x1_4" class="n01"></label>
 
@@ -315,7 +329,7 @@
                                         4
                                     </button>
 
-                                    <button type="button" class="stronge">
+                                    <button type="button" class="stronge" style="position: absolute; top: 215px; left: 85px;">
                                         <label for="x0_5" class="n00"></label>
                                         <label for="x1_5" class="n01"></label>
 
@@ -324,7 +338,7 @@
                                         5
                                     </button>
 
-                                    <button type="button" class="stronge">
+                                    <button type="button" class="stronge" style="position: absolute; top: 215px; left: 145px;">
                                         <label for="x0_6" class="n00"></label>
                                         <label for="x1_6" class="n01"></label>
 
@@ -333,7 +347,7 @@
                                         6
                                     </button>
 
-                                    <button type="button" class="stronge">
+                                    <button type="button" class="stronge" style="position: absolute; top: 280px; left: 25px;">
                                         <label for="x0_7" class="n00"></label>
                                         <label for="x1_7" class="n01"></label>
 
@@ -342,7 +356,7 @@
                                         7
                                     </button>
 
-                                    <button type="button" class="stronge">
+                                    <button type="button" class="stronge" style="position: absolute; top: 280px; left: 85px;">
                                         <label for="x0_8" class="n00"></label>
                                         <label for="x1_8" class="n01"></label>
 
@@ -351,7 +365,7 @@
                                         8
                                     </button>
 
-                                    <button type="button" class="stronge">
+                                    <button type="button" class="stronge" style="position: absolute; top: 280px; left: 145px;">
                                         <label for="x0_9" class="n00"></label>
                                         <label for="x1_9" class="n01"></label>
 
@@ -360,7 +374,7 @@
                                         9
                                     </button>
 
-                                    <button type="button" class="stronge">
+                                    <button type="button" class="stronge" style="position: absolute; top: 345px; left: 85px;">
                                         <label for="x0_0" class="n00"></label>
                                         <label for="x1_0" class="n01"></label>
 
@@ -371,32 +385,32 @@
                                 </div>
 
                                 <div class="chink">
-                                    <button type="button">
+                                    <button type="button" style="position: absolute; top: 150px; left: 205px;  border: 1px solid #ad99ff; background-color: #ad99ff;">
                                         <label for="plus" class="plusb"></label>
                                         +
                                     </button>
 
-                                    <button type="button">
+                                    <button type="button" style="position: absolute; top: 215px; left: 205px;border: 1px solid #ad99ff; background-color: #ad99ff;">
                                         <label for="minus" class="minb"></label>
                                         -
                                     </button>
 
-                                    <button type="button">
+                                    <button type="button" style="position: absolute; top: 280px; left: 205px;border: 1px solid #ad99ff; background-color: #ad99ff;">
                                         <label for="mult" class="mulb"></label>
                                         *
                                     </button>
 
-                                    <button type="button">
+                                    <button type="button" style="position: absolute; top: 345px; left: 205px;border: 1px solid #ad99ff; background-color: #ad99ff;">
                                         <label for="div" class="divb"></label>
                                         /
                                     </button>
                                 </div>
                                 <div class="lolol">
-                                    <button type="button">
+                                    <button type="button" style="position: absolute; top: 345px; left: 145px;border: 1px solid #931010; background-color: #931010;">
                                         <label for="eq" class="eqb"></label>
                                         =
                                     </button>
-                                    <button type="button">
+                                    <button type="button" style="position: absolute; top: 345px; left: 25px; border: 1px solid #d3d3d3; background-color: #d3d3d3;">
                                         <label for="clear" style="display: block !important;"></label>
                                         c
                                     </button>
@@ -406,6 +420,8 @@
                     </div>
                 </div>
             </div> 
+            <div style="width: 265px; height:420px; background-color: #f0ff79; position: absolute; z-index: -2; border-radius: 25px;"></div>
+            <div style="width: 235px; height:120px; background-color: #d0ffcc; position: absolute; z-index: -1; border-radius: 25px; top: 20px; left: 23px;"></div>
         </form>
     </body>
 </html>
