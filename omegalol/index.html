@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Homo homo sapiens</title>
+    </head>
+    
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        input {
+            display: none;
+        }
+        
+        .container {
+            --tit: 40px;
+            width: calc(100vw - (var(--tit) * 2)); 
+            height: calc(100vh - (var(--tit) * 2)); 
+            padding: var(--tit);
+        }
+        
+        #light:checked ~ .container {
+            --bg: aliceblue;
+            --fg: darkslategrey;
+            --p1: #637c7c;
+        }
+        
+        
+        #dark:checked ~ .container {
+            --bg: darkslategrey;
+            --fg: aliceblue;
+            --p1: #bac2c9;
+        }
+        
+        #glight:checked ~ .container {
+            --bg: #fbf1c7;
+            --fg: #3c3836;
+            --p1: #746c69;
+        }
+        
+        #gdark:checked ~ .container {
+            --bg: #282828;
+            --fg: #ebdbb2;
+            --p1: #bcae8d;
+        }
+        
+        .container {
+            background-color: var(--bg);
+            color: var(--fg);
+        }
+        
+        label {
+            cursor: pointer;
+            border: 1px solid var(--fg);
+            background-color: var(--fg);
+            color: var(--bg);
+            padding: 5px;   
+        }
+        
+        .s2 {
+            border: 1px solid var(--fg);
+            height: fit-content;
+            padding: 25px;
+        }
+        
+        
+        .s2 > label:not(:first-child){
+            margin-left: -3px;
+        }
+        
+        .tabcontent {
+            display: none;
+            padding-top: 20px;
+        }
+        
+        #t1:checked ~ #lol1 {
+            cursor: default;
+            border: 1px solid var(--p1);
+            background-color: var(--p1);        
+        }
+        #t1:checked ~ #tc1 {
+            display: block;
+        }
+        
+        #t2:checked ~ #lol2 {
+            cursor: default;
+            border: 1px solid var(--p1);
+            background-color: var(--p1);        
+        }        
+        #t2:checked ~ #tc2 {
+            display: block;
+        }
+        
+        #t3:checked ~ #lol3 {
+            cursor: default;
+            border: 1px solid var(--p1);
+            background-color: var(--p1);        
+        }
+        #t3:checked ~ #tc3 {
+            display: block;
+        }
+
+        #t4:checked ~ #lol4 {
+            cursor: default;
+            border: 1px solid var(--p1);
+            background-color: var(--p1);        
+        }
+        #t4:checked ~ #tc4 {
+            display: block;
+        }
+    </style>
+
+    <body>
+        <input type="radio" id="light" name="racism" checked/>
+        <input type="radio" id="dark" name="racism" />
+        <input type="radio" id="glight" name="racism" />
+        <input type="radio" id="gdark" name="racism" />
+        
+        
+        
+        <div class="container">
+            <label for="light">Light</label>
+            <label for="dark">Dark</label>
+            <label for="glight">Gay</label>
+            <label for="gdark">Bisexual</label>
+            
+            
+            <div>
+                <h1>
+                    Hello Chinks
+                </h1>
+                
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+                
+            </div>
+            
+            
+            <div>
+                <h1>
+                    Chink Ipsum
+                </h1>
+                
+                <p>
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+                </p>
+                
+            </div>
+            
+            <div class="s2">
+                <input type="radio" id="t1" name="sexism" checked/>
+                <input type="radio" id="t2" name="sexism" />
+                <input type="radio" id="t3" name="sexism" />
+                <input type="radio" id="t4" name="sexism" />
+                
+                <label for="t1" id="lol1">Megma</label>
+                <label for="t2" id="lol2">Ningus</label>
+                <label for="t3" id="lol3">Chungus</label>
+                <label for="t4" id="lol4">Lowjob</label>
+                
+                <div id="tc1" class="tabcontent">욱정욱정욱</div>
+                <div id="tc2" class="tabcontent">으앙아아앙아아아앙</div>
+                <div id="tc3" class="tabcontent">UKKKKKKKKKKIE</div>
+                <div id="tc4" class="tabcontent">개이</div>
+            </div>
+        </div>
+        
+    </body>
+</html>
