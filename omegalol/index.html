@@ -51,6 +51,7 @@
         .container {
             background-color: var(--bg);
             color: var(--fg);
+            transition: background-color 500ms linear, color 500ms linear;
         }
         
         label {
@@ -67,14 +68,24 @@
             padding: 25px;
         }
         
+        .s2 > label {
+            transition: background-color 500ms linear, color 500ms linear;            
+        }
         
         .s2 > label:not(:first-child){
             margin-left: -3px;
         }
         
+        @keyframes fadeIn {
+          0% {opacity:0;}
+          100% {opacity:1;}
+        }
+
+        
         .tabcontent {
             display: none;
             padding-top: 20px;
+            animation: fadeIn 500ms;
         }
         
         #t1:checked ~ #lol1 {
@@ -112,6 +123,7 @@
         #t4:checked ~ #tc4 {
             display: block;
         }
+        
     </style>
 
     <body>
@@ -168,6 +180,85 @@
                 <div id="tc3" class="tabcontent">UKKKKKKKKKKIE</div>
                 <div id="tc4" class="tabcontent">개이</div>
             </div>
+            
+            <style>
+                .badeh {
+                  width: 170px;
+                  height: 150px;
+                  border: 2px solid black;
+                  border-radius: 170px;
+                  background-color: yellow;
+                  animation: fap 2s linear infinite;
+                  margin-top: 100px;
+                }
+
+                @keyframes fap {
+                  0%, 100% {
+                    transform: translateY(0);
+                  }
+                  50% {
+                    transform: translateY(100px);
+                  }
+                }
+
+                .eye {
+                  width: 35px;
+                  height: 50px;
+                  border: 1px solid black;
+                  border-radius: 30px;
+                  background-color: white;
+                  margin-left: 120px;
+                  margin-top: 10px;
+                }
+
+                .pupil {
+                  width: 20px;
+                  height: 20px;
+                  border: 1px solid black;
+                  border-radius: 20px;
+                  background-color: black;
+                  margin-top: 20px;
+                  margin-left: 12px;
+                }
+
+                .mouth {
+                  width: 70px;
+                  height: 70px;
+                  background-image:
+                    linear-gradient(to bottom right, transparent 50%, #de932a 0),
+                    linear-gradient(to top right, #eda642 50%, transparent 0);
+                  background-size: 50% 100%;
+                  background-repeat: no-repeat;
+                  background-position: left, right;
+                  transform: rotate(90deg);
+                  margin-left: 150px;
+                  border-radius: 200px;
+                  margin-top: -20px;
+                }
+
+                .wing {
+                  width: 70px;
+                  height: 90px;
+                  background-image:
+                    linear-gradient(to bottom right, transparent 50%, #424242 0),
+                    linear-gradient(to top right, black 50%, transparent 0);
+                  background-size: 50% 100%;
+                  background-repeat: no-repeat;
+                  background-position: left, right;
+                  transform: rotate(260deg);
+                  margin-left: 10px;
+                  border-radius: 100px;
+                  margin-top: -60px;
+                }
+                </style>
+
+                <div class="badeh">
+                  <div class="eye"><div class="pupil"></div></div>
+                  <div class="mouth">
+                  </div>
+                  <div class="wing"></div>
+                </div>
+
         </div>
         
     </body>
